@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal Finance Visualizer
 
-## Getting Started
+A modern web application for tracking and visualizing personal financial transactions built with Next.js, MongoDB, and Tailwind CSS.
 
-First, run the development server:
+## Features
+
+- 📊 Interactive dashboard with expense visualization
+- 💰 Track income and expenses
+- 📈 Monthly expense trends
+- 🔄 Real-time category breakdown
+- 📱 Responsive design for all devices
+- 🎨 Dark/Light mode support
+- ⚡ Real-time updates
+
+## Tech Stack
+
+- **Frontend**: Next.js 15.3.0, React 19.0.0
+- **Styling**: Tailwind CSS
+- **Database**: MongoDB with Mongoose
+- **Charts**: Recharts
+- **Animation**: Framer Motion
+- **Form Handling**: React Hook Form with Zod validation
+- **UI Components**: Heroicons
+- **Notifications**: React Hot Toast
+
+## Prerequisites
+
+- Node.js 18+
+- MongoDB database (local or Atlas)
+- npm or yarn package manager
+
+## Environment Setup
+
+1. Clone the repository
+2. Create a `.env.local` file in the root directory with:
+
+```env
+MONGODB_URI="your_mongodb_connection_string"
+```
+
+## Installation
 
 ```bash
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Run development server
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+PersonalFinanceTracker/
+├── app/                  # Next.js app directory
+│   ├── api/             # API routes
+│   ├── layout.js        # Root layout
+│   └── page.js          # Main page component
+├── components/          # React components
+├── lib/                 # Utility functions
+├── models/             # MongoDB models
+└── public/             # Static assets
+```
 
-## Learn More
+## Key Components
 
-To learn more about Next.js, take a look at the following resources:
+- **TransactionForm**: Handles adding/editing transactions
+- **TransactionList**: Displays all transactions
+- **ExpenseChart**: Shows monthly expense trends
+- **CategoryPieChart**: Visualizes spending by category
+- **DashboardSummary**: Displays financial overview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Endpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `GET /api/transactions` - Get all transactions
+- `POST /api/transactions` - Create new transaction
+- `PUT /api/transactions/[id]` - Update transaction
+- `DELETE /api/transactions/[id]` - Delete transaction
